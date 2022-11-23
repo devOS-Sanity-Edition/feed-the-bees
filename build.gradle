@@ -122,7 +122,7 @@ if (System.getenv("GITHUB_TOKEN")) {
 		repo "feed-the-bees"
 		tagName 'v' + origVersion
 		releaseName origVersion
-		targetCommitish mc
+		targetCommitish mc_major
 		draft false
 		prerelease false
 		releaseAssets remapJar.archiveFile
