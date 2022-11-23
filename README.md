@@ -1,2 +1,2 @@
-# feed-the-bees
-Simple mod about bees
+# Feed the Bees
+A simple mod about bees.
