@@ -24,6 +24,9 @@
 				"versions": ">=0.17.0-"
 			},
 			{
+				"id": "quilt_resource_loader"
+			},
+			{
 				"id": "minecraft",
 				"versions": ">=1.19.2"
 			}

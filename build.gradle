@@ -44,6 +44,7 @@ dependencies {
 	mappings variantOf(libs.quilt.mappings) { classifier 'intermediary-v2' }
 
 	modImplementation libs.quilt.loader
+	modImplementation libs.qsl
 }
 
 processResources {
