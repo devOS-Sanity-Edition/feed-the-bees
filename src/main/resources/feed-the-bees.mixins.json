@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "garden.hestia.feed_the_bees.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "AnimalEntityMixin",
+    "BeeEntityMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
