@@ -13,7 +13,7 @@ public class BeeEntityMixin {
 	at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/attribute/DefaultAttributeContainer$Builder;add(Lnet/minecraft/entity/attribute/EntityAttribute;D)Lnet/minecraft/entity/attribute/DefaultAttributeContainer$Builder;"))
 	private static void modifyBeeSpeed(Args args)
 	{
-		if (args.get(0) == EntityAttributes.GENERIC_MOVEMENT_SPEED)
+		if (args.get(0) == EntityAttributes.GENERIC_MOVEMENT_SPEED || args.get(0) == EntityAttributes.GENERIC_FLYING_SPEED)
 		{
 			args.set(1, (double) args.get(1) * 2.0F);
 		}

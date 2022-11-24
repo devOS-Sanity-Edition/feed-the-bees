@@ -1,7 +1,8 @@
 package garden.hestia.feed_the_bees.mixin;
 
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.entity.passive.PassiveEntity;
@@ -17,7 +18,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import static net.minecraft.entity.passive.PassiveEntity.m_eyazmlyb;
 
 @Mixin(AnimalEntity.class)
 public abstract class AnimalEntityMixin extends PassiveEntity {
@@ -35,10 +35,15 @@ public abstract class AnimalEntityMixin extends PassiveEntity {
 		if ((Object) this instanceof BeeEntity)
 		{
 			ItemStack itemStack = player.getStackInHand(hand);
-			if (itemStack.isOf(Items.SUGAR))
-			{
-				this.eat(player, hand, itemStack);
-				cir.setReturnValue(ActionResult.success(this.world.isClient));
+			if (itemStack.isOf(Items.SUGAR)) {
+				if (!this.hasStatusEffect(StatusEffects.REGENERATION)) {
+					this.eat(player, hand, itemStack);
+					this.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 200, 1));
+					cir.setReturnValue(ActionResult.success(this.world.isClient));
+				}
+				else if (this.world.isClient) {
+					cir.setReturnValue(ActionResult.CONSUME);
+				}
 			}
 		}
 	}
