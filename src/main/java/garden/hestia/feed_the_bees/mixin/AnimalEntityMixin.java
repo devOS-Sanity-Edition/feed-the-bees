@@ -39,9 +39,9 @@ public abstract class AnimalEntityMixin extends PassiveEntity {
 				if (!this.hasStatusEffect(StatusEffects.REGENERATION)) {
 					this.eat(player, hand, itemStack);
 					this.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 200, 1));
-					cir.setReturnValue(ActionResult.success(this.world.isClient));
+					cir.setReturnValue(ActionResult.success(this.getWorld().isClient));
 				}
-				else if (this.world.isClient) {
+				else if (this.getWorld().isClient) {
 					cir.setReturnValue(ActionResult.CONSUME);
 				}
 			}
