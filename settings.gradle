@@ -16,19 +16,19 @@ pluginManagement {
 dependencyResolutionManagement {
 	versionCatalogs {
 		libs {
-			def mc_major = '1.19'
-			def mc = mc_major + '.2'
-			def mappings = 21
+			def mc_major = '1.20'
+			def mc = mc_major + '.5'
+			def mappings = 1
 
 			// // Base // //
 			version('minecraft', mc)
-			version('quilt.loader', "0.17.6")
-			version('qsl', "3.0.0-beta.21+${mc}")
+			version('quilt.loader', "0.26.0-beta.1")
+//			version('qsl', "9.0.0-alpha.8+0.97.0+${mc}")
 			version('quilt.mappings', "${mc}+build.${mappings}")
 
 			library('minecraft', 'mojang', 'minecraft').versionRef('minecraft')
 			library('quilt.loader', 'org.quiltmc', 'quilt-loader').versionRef('quilt.loader')
-			library('qsl', 'org.quiltmc', 'qsl').versionRef('qsl')
+//			library('qsl', 'org.quiltmc', 'qsl').versionRef('qsl') // waiting for 1.20.5 QSL
 			library('quilt.mappings', 'org.quiltmc', 'quilt-mappings').versionRef('quilt.mappings')
 
 		}
